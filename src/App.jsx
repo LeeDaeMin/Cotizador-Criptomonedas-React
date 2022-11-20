@@ -46,13 +46,13 @@ const Heading = styled.h1`
 
 function App() {
 
-  const [monedas, setMonedas] = useState({})
+  const [moneda, setMonedas] = useState({})
   const [resultado, setResultado] = useState({})
 
   useEffect(() => {
-    if(Object.keys(monedas).length > 0){
+    if(Object.keys(moneda).length > 0){
          const cotizarCripto = async () => {
-          const {moneda, criptomoneda} = monedas
+          const {moneda, criptomoneda} = moneda
           const url = `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${criptomoneda}&tsyms=${moneda}`
 
           const respuesta = await fetch(url)
@@ -62,7 +62,7 @@ function App() {
       }
       cotizarCripto()
     }
-  }, [monedas])
+  }, [moneda])
 
   return (
     <Contenedor>
